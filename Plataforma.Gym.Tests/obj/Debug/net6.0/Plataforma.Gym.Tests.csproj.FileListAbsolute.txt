@@ -1,0 +1,6 @@
+D:\Users\toshc\source\repos\Plataforma.Gym.WebApi\Plataforma.Gym.Tests\bin\Debug\net6.0\CoverletSourceRootsMapping
+D:\Users\toshc\source\repos\Plataforma.Gym.WebApi\Plataforma.Gym.Tests\obj\Debug\net6.0\Plataforma.Gym.Tests.csproj.AssemblyReference.cache
+D:\Users\toshc\source\repos\Plataforma.Gym.WebApi\Plataforma.Gym.Tests\obj\Debug\net6.0\Plataforma.Gym.Tests.GeneratedMSBuildEditorConfig.editorconfig
+D:\Users\toshc\source\repos\Plataforma.Gym.WebApi\Plataforma.Gym.Tests\obj\Debug\net6.0\Plataforma.Gym.Tests.AssemblyInfoInputs.cache
+D:\Users\toshc\source\repos\Plataforma.Gym.WebApi\Plataforma.Gym.Tests\obj\Debug\net6.0\Plataforma.Gym.Tests.AssemblyInfo.cs
+D:\Users\toshc\source\repos\Plataforma.Gym.WebApi\Plataforma.Gym.Tests\obj\Debug\net6.0\Plataforma.Gym.Tests.csproj.CoreCompileInputs.cache
