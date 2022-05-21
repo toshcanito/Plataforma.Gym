@@ -1,11 +1,19 @@
+
+using Plataforma.Gym.WebApi.Features.Security.Extensions;
+using Plataforma.Gym.WebApi.Persistence.Extensions;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+var services = builder.Services;
+
+services.AddPersistence(builder.Configuration);
+services.AddSecurityModule();
 
 var app = builder.Build();
 
