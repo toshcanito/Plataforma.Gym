@@ -36,6 +36,8 @@ namespace Plataforma.Gym.WebApi.Shared.Middlewares
                     // custom application error
                     ModelValidationException _ => (int)HttpStatusCode.BadRequest,
 
+                    ArgumentException _ => (int)HttpStatusCode.BadRequest,
+
                     // not found error
                     KeyNotFoundException _ => (int)HttpStatusCode.NotFound,
 

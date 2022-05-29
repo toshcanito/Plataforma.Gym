@@ -1,14 +1,15 @@
 using Plataforma.Gym.WebApi.Features.Security.Entities;
 using Plataforma.Gym.WebApi.Features.Security.Interfaces;
+using Plataforma.Gym.WebApi.Persistence;
 using Plataforma.Gym.WebApi.Shared.Interfaces;
 
 namespace Plataforma.Gym.WebApi.Features.Security.Repositories
 {
     public class SecurityRepository : ISecurityRepository
     {
-        private readonly IDbContext context;
+        private readonly PostgresDbContext context;
 
-        public SecurityRepository(IDbContext context)
+        public SecurityRepository(PostgresDbContext context)
         {
             this.context = context;
         }

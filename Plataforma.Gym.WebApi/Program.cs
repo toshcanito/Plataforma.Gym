@@ -1,33 +1,24 @@
-
-using FluentValidation.AspNetCore;
-using Microsoft.AspNetCore.Mvc;
 using Plataforma.Gym.WebApi.Features.Security.Extensions;
 using Plataforma.Gym.WebApi.Persistence.Extensions;
+using Plataforma.Gym.WebApi.Shared.Configurations;
 using Plataforma.Gym.WebApi.Shared.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
+var services = builder.Services;
+var configuration = builder.Configuration;
 
 // Add services to the container.
 
-builder.Services.AddControllers()
-.ConfigureApiBehaviorOptions(options =>
-{
-    options.InvalidModelStateResponseFactory = context =>
-    {
-        return new BadRequestObjectResult(context.ModelState);
-    };
-})
-.AddFluentValidation(options =>
-{
-    options.RegisterValidatorsFromAssemblyContaining<Program>();
-});
+services.AddControllersConfiguration();
 
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+services.AddEndpointsApiExplorer();
 
-var services = builder.Services;
+services.AddAuthenticationConfiguration(configuration);
 
-services.AddPersistence(builder.Configuration);
+services.AddSwaggerConfiguration();
+
+services.AddPersistenceConfiguration(configuration);
+
 services.AddSecurityModule();
 
 var app = builder.Build();
@@ -41,6 +32,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.UseMiddleware<ErrorHandlerMiddleware>();
