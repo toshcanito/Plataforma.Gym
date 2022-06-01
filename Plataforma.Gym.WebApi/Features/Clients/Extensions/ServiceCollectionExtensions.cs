@@ -8,7 +8,7 @@ namespace Plataforma.Gym.WebApi.Features.Clients.Extensions
         public static IServiceCollection AddClientModule(this IServiceCollection services)
         {
             services.AddTransient<IClientRepository, ClientRepository>();
-            services.AddTransient<IClientService, ClientService>();
+            //services.AddTransient<IClientService, ClientService>();
 
             return services;
         }
