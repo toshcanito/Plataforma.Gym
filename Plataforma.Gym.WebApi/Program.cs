@@ -1,18 +1,24 @@
-
 using Plataforma.Gym.WebApi.Features.Security.Extensions;
 using Plataforma.Gym.WebApi.Persistence.Extensions;
+using Plataforma.Gym.WebApi.Shared.Configurations;
+using Plataforma.Gym.WebApi.Shared.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
+var services = builder.Services;
+var configuration = builder.Configuration;
 
 // Add services to the container.
 
-builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+services.AddControllersConfiguration();
 
-var services = builder.Services;
+services.AddEndpointsApiExplorer();
 
-services.AddPersistence(builder.Configuration);
+services.AddAuthenticationConfiguration(configuration);
+
+services.AddSwaggerConfiguration();
+
+services.AddPersistenceConfiguration(configuration);
+
 services.AddSecurityModule();
 
 var app = builder.Build();
@@ -26,7 +32,10 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
+
+app.UseMiddleware<ErrorHandlerMiddleware>();
 
 app.MapControllers();
 

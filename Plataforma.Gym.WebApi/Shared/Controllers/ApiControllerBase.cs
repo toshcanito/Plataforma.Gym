@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-
+using FluentValidation;
 namespace Plataforma.Gym.WebApi.Shared.Controllers
 {
     [ApiController]

@@ -5,12 +5,14 @@ namespace Plataforma.Gym.WebApi.Persistence.Extensions
 {
     public static class ServiceCollectionExtensions
     {
-        public static IServiceCollection AddPersistence(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddPersistenceConfiguration(this IServiceCollection services, IConfiguration configuration)
         {
 
-            services.AddDbContext<PostgresDbContext>(option => option.UseNpgsql(configuration.GetConnectionString("postgresql")));
+            services.AddEntityFrameworkNpgsql()
+            .AddDbContext<PostgresDbContext>(option => 
+                option.UseNpgsql(configuration.GetConnectionString("postgresql"))
+            );
 
-            services.AddScoped<IDbContext,PostgresDbContext>();
 
             return services;
         }

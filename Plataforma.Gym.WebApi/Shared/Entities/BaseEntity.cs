@@ -2,6 +2,6 @@ namespace Plataforma.Gym.WebApi.Shared.Entities
 {
     public abstract class BaseEntity
     {
-        public Guid Id { get; set; }
+        public Guid Id { get; protected set; }
     }
 }
