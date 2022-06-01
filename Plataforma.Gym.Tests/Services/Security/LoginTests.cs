@@ -1,9 +1,11 @@
 using FluentAssertions;
+using Microsoft.Extensions.Options;
 using Moq;
 using NUnit.Framework;
 using Plataforma.Gym.WebApi.Features.Security.Entities;
 using Plataforma.Gym.WebApi.Features.Security.Interfaces;
 using Plataforma.Gym.WebApi.Features.Security.Services;
+using Plataforma.Gym.WebApi.Shared.Configurations;
 using System;
 
 namespace Plataforma.Gym.Tests.Services.Security
@@ -15,8 +17,13 @@ namespace Plataforma.Gym.Tests.Services.Security
 
         public LoginTests()
         {
+            JwtConfiguration conf = new();
+            var mockIOptions = new Mock<IOptions<JwtConfiguration>>();
+            mockIOptions.Setup(x => x.Value).Returns(conf);
+
             securityRepository = new Mock<ISecurityRepository>();
-            securityService = new SecurityService(securityRepository.Object);
+
+            securityService = new SecurityService(securityRepository.Object, mockIOptions.Object);
         }
 
         [SetUp]
