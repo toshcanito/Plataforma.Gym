@@ -1,4 +1,7 @@
-﻿namespace Plataforma.Gym.WebApi.Features.Client.Extensions
+﻿using Plataforma.Gym.WebApi.Features.Clients.Interfaces;
+using Plataforma.Gym.WebApi.Features.Clients.Repositories;
+
+namespace Plataforma.Gym.WebApi.Features.Clients.Extensions
 {
     public static class ServiceCollectionExtensions
     {

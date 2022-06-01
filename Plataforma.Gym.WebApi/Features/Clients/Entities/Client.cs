@@ -1,4 +1,4 @@
-﻿namespace Plataforma.Gym.WebApi.Features.Client.Entities
+﻿namespace Plataforma.Gym.WebApi.Features.Clients.Entities
 {
     public class Client
     {
