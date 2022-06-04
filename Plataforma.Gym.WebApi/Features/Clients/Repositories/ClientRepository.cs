@@ -18,10 +18,12 @@ namespace Plataforma.Gym.WebApi.Features.Clients.Repositories
             Client client = FindClientById(clientId);
             //Add custom client exception on client not found
 
-            this.context.Clients.Remove(client);
+            client.IsActive = false;
+            this.context.Update(client);
+            this.context.SaveChanges();
         }
 
-        public Client? FindClientById(Guid id)
+        public Client FindClientById(Guid id)
         {
             return this.context.Clients
                 .FirstOrDefault(x => x.Id == id);
@@ -39,11 +41,21 @@ namespace Plataforma.Gym.WebApi.Features.Clients.Repositories
             return client;
         }
 
-        public Client UpdateClient(Client client)
+        public Client UpdateClient(Guid clientId, Client client)
         {
+            Client clientToUpdate = FindClientById(clientId);
+
+            //map values
+
             this.context.Update(client);
             this.context.SaveChanges();
             return client;
+        }
+
+        public bool DoClientExist(Guid clientId) 
+        {
+            Client client = FindClientById(clientId);
+            return client != default;
         }
     }
 }
