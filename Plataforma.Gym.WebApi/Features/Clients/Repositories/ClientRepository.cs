@@ -45,7 +45,7 @@ namespace Plataforma.Gym.WebApi.Features.Clients.Repositories
         {
             Client clientToUpdate = FindClientById(clientId);
 
-            //map values
+            //map new values
 
             this.context.Update(client);
             this.context.SaveChanges();
