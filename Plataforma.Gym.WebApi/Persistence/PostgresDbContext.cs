@@ -16,7 +16,7 @@ namespace Plataforma.Gym.WebApi.Persistence
         {
             // var pendingMigrations = Database.GetPendingMigrations();
 
-            // if(pendingMigrations.Any()){
+            // if(pendingMigrations.Count() > 0){
             //     Database.Migrate();
             // }
 

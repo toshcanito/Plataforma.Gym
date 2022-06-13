@@ -21,7 +21,7 @@ namespace Plataforma.Gym.WebApi.Features.Security.Dtos.Requests.RegisterUser
             RuleFor(x => x.Email)
                .NotEmpty()
                .NotNull()
-               .Matches("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$")
+               .Matches("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,6}$")
                .EmailAddress();
 
             RuleFor(x => x.Password)

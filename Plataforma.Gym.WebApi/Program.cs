@@ -17,6 +17,8 @@ services.AddAuthenticationConfiguration(configuration);
 
 services.AddSwaggerConfiguration();
 
+services.AddMailConfiguration(configuration);
+
 services.AddPersistenceConfiguration(configuration);
 
 services.AddSecurityModule();
