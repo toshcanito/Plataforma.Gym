@@ -14,14 +14,7 @@ namespace Plataforma.Gym.WebApi.Persistence
 
         public PostgresDbContext(DbContextOptions<PostgresDbContext> options) : base(options)
         {
-            // var pendingMigrations = Database.GetPendingMigrations();
-
-            // if(pendingMigrations.Count() > 0){
-            //     Database.Migrate();
-            // }
-
-            Database.Migrate();
-
+            
         }
 
 
